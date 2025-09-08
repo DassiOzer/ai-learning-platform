@@ -14,5 +14,5 @@ mongoose.connect(process.env.MONGODB_URI)
 app.get('/', (req, res) => res.send('API עובד!'));
 
 app.listen(process.env.PORT, () => {
-  console.log(`Server running on port http://localhost:${process.env.PORT}`);
+  console.log(`Server running on port ${process.env.PORT}`);
 });
