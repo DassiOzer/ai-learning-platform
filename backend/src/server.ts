@@ -2,7 +2,7 @@ import app from './app';
 import http from 'http';
 import dotenv from 'dotenv';
 
-dotenv.config();
+dotenv.config({ quiet: true });
 
 const server = http.createServer(app);
 

@@ -1,8 +1,19 @@
-import express from 'express';
-import { registerUser } from '../controllers/userController';
+import { Router } from 'express';
+import { 
+    getUserByIdController, 
+    getUserHistoryController, 
+    updateUserController 
+} from '../controllers/userController';
 
-const router = express.Router();
+const router = Router();
 
-router.post('/register', registerUser);
+// Get user by ID
+router.get('/:id', getUserByIdController);
+
+// Get user's learning history
+router.get('/:id/history', getUserHistoryController);
+
+// Update user details
+router.put('/:id', updateUserController);
 
 export default router;
