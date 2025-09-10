@@ -20,7 +20,7 @@ const Login: React.FC = () => {
       const response = await authService.login(loginData);
       
       console.log('Login successful:', response);
-      navigate('/dashboard'); // ← עבור לדשבורד
+      navigate('/dashboard');
       
     } catch (err: any) {
       console.error('Login error:', err);

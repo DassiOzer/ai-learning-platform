@@ -15,7 +15,7 @@ const AdminLogin: React.FC = () => {
     // בדיקת סיסמת מנהל
     setTimeout(() => {
       if (password === 'ADMIN') {
-        navigate('/admin-dashboard'); // ← עבור לדשבורד מנהל
+        navigate('/admin-dashboard');
       } else {
         setError('Invalid admin password');
       }

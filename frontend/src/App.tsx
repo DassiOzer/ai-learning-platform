@@ -5,6 +5,7 @@ import Register from './components/Auth/Register';
 import Dashboard from './components/Dashboard/Dashboard';
 import AdminLogin from './components/Auth/AdminLogin';
 import AdminDashboard from './components/Admin/AdminDashboard';
+import CategoryManager from './components/Admin/CategoryManager';
 import './App.css';
 
 function App() {
@@ -23,6 +24,8 @@ function App() {
           {/* Dashboard routes */}
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/admin-dashboard" element={<AdminDashboard />} />
+
+           <Route path="/admin-categories" element={<CategoryManager />} />
         </Routes>
       </div>
     </Router>
