@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
-import { authService } from '../../services/auth';
+import { useNavigate } from 'react-router-dom';
+import { authService } from '../../services/authService';
 import { RegisterData } from '../../types';
 
+
 const Register: React.FC = () => {
+  const navigate = useNavigate();
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
   const [loading, setLoading] = useState(false);
@@ -18,9 +21,7 @@ const Register: React.FC = () => {
       const response = await authService.register(registerData);
       
       console.log('Registration successful:', response);
-      alert(`Registration successful! Welcome ${response.user.name}`);
-      
-      // כאן תוסיף מעבר לדשבורד או login
+      navigate('/dashboard');
       
     } catch (err: any) {
       console.error('Registration error:', err);
