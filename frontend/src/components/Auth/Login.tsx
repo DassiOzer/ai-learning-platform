@@ -18,6 +18,9 @@ const Login: React.FC = () => {
     try {
       const loginData: LoginData = { name, phone };
       const response = await authService.login(loginData);
+
+      localStorage.setItem('user_id', response.user.id);
+      localStorage.setItem('user_name', response.user.name);
       
       console.log('Login successful:', response);
       navigate('/dashboard');

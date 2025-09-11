@@ -100,8 +100,11 @@ const AdminDashboard: React.FC = () => {
                         <div className="border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow">
                             <h3 className="text-lg font-semibold text-gray-800 mb-2">User Management</h3>
                             <p className="text-gray-600 mb-4">View and manage user accounts</p>
-                            <button className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 transition-colors">
-                                View Users
+                            <button
+                                className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 transition-colors"
+                                onClick={() => navigate('/admin/users')}
+                            >
+                                View and manage user accounts
                             </button>
                         </div>
 

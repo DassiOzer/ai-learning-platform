@@ -28,8 +28,8 @@ export interface SubCategory {
 export interface Prompt {
   _id: string;
   user_id: string;
-  category_id: string;
-  sub_category_id: string;
+  category_id: string | { _id: string; name: string };
+  sub_category_id: string | { _id: string; name: string };
   prompt: string;
   response: string;
   created_at: string;
