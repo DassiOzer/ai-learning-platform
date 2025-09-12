@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { useParams } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 import { Prompt } from '../../types';
 
 const UserHistory: React.FC = () => {
   const { id } = useParams<{ id: string }>();
+  const location = useLocation();
+  const { name } = location.state || {};
   const [history, setHistory] = useState<Prompt[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -18,7 +20,7 @@ const UserHistory: React.FC = () => {
 
   return (
     <div className="max-w-3xl mx-auto p-6">
-      <h2 className="text-2xl font-bold mb-6 text-center">{`${localStorage.getItem('user_name')} Questions History`}</h2>
+      <h2 className="text-2xl font-bold mb-6 text-center">{`${name} Questions History`}</h2>
       {history.length === 0 ? (
         <div className="text-gray-500 text-center">No questions found.</div>
       ) : (

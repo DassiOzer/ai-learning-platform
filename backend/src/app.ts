@@ -5,6 +5,7 @@ import userRoutes from './routes/userRoutes';
 import categoryRoutes from './routes/categoryRoutes';
 import promptRoutes from './routes/promptRoutes';
 import authRoutes from './routes/authRoutes';
+import errorHandler from './middlewares/errorHandler';
 
 const app = express();
 
@@ -20,8 +21,6 @@ app.use('/api/prompts', promptRoutes);
 
 app.get('/', (_req: Request, res: Response) => res.send('AI Learning Platform API'));
 
-app.use((err: Error, req: Request, res: Response, next: any) => {
-    res.status(500).send(err.message);
-});
+app.use(errorHandler);
 
 export default app;

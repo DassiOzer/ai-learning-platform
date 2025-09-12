@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { User } from '../../types';
 
@@ -7,6 +8,9 @@ const AdminUsers: React.FC = () => {
     const [users, setUsers] = useState<User[]>([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState('');
+    const [editId, setEditId] = useState<string | null>(null);
+    const [editName, setEditName] = useState<string>('');
+    const [editPhone, setEditPhone] = useState<string>('');
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -32,8 +36,26 @@ const AdminUsers: React.FC = () => {
         }
     };
 
-    const handleEdit = (id: string) => {
-        navigate(`/admin/users/${id}/edit`);
+    const handleEdit = (id: string, name: string, phone: string) => {
+        setEditId(editId === id ? null : id);
+        if (editId !== id) {
+            setEditName(name);
+            setEditPhone(phone);
+        }
+    };
+
+    const handleUpdate = async (id: string) => {
+        try {
+            await axios.put(`/api/users/${id}`, { name: editName, phone: editPhone });
+            setUsers(users => users.map(u => (u.id === id ? { ...u, name: editName, phone: editPhone } : u)));
+            setEditId(null);
+        } catch {
+            setError('Failed to update user');
+        }
+    };
+
+    const handleCancel = () => {
+        setEditId(null);
     };
 
     const handleHistory = (id: string) => {
@@ -57,19 +79,56 @@ const AdminUsers: React.FC = () => {
                 <tbody>
                     {users.map(u => (
                         <tr key={u.id} className="border-t">
-                            <td className="p-2 text-center">{u.name}</td>
-                            <td className="p-2 text-center">{u.phone}</td>
+                            <td className="p-2 text-center">
+                                {editId === u.id ? (
+                                    <input
+                                        type="text"
+                                        value={editName} // השתמש ב-value במקום defaultValue
+                                        onChange={(e) => setEditName(e.target.value)} // עדכן את הערך בזמן אמת
+                                        className="border p-1 rounded"
+                                    />
+                                ) : (
+                                    u.name
+                                )}
+                            </td>
+                            <td className="p-2 text-center">
+                                {editId === u.id ? (
+                                    <input
+                                        type="text"
+                                        value={editPhone} // השתמש ב-value במקום defaultValue
+                                        onChange={(e) => setEditPhone(e.target.value)} // עדכן את הערך בזמן אמת
+                                        className="border p-1 rounded"
+                                    />
+                                ) : (
+                                    u.phone
+                                )}
+                            </td>
                             <td className="p-2 text-center">
                                 <div className="flex justify-center space-x-2">
-                                    <button className="text-green-600 underline" onClick={() => handleEdit(u.id)}>
-                                        Edit
-                                    </button>
-                                    <button className="text-red-600 underline" onClick={() => handleDelete(u.id)}>
-                                        Delete
-                                    </button>
-                                    <button className="text-blue-600 underline" onClick={() => handleHistory(u.id)}>
-                                        History
-                                    </button>
+                                    {editId === u.id ? (
+                                        <>
+                                            <button className="bg-green-600 text-white font-bold py-1 px-4 rounded hover:bg-green-700 transition duration-200" onClick={() => handleUpdate(u.id)}>
+                                                Save
+                                            </button>
+                                            <button className="bg-red-600 text-white font-bold py-1 px-4 rounded hover:bg-red-700 transition duration-200" onClick={handleCancel}>
+                                                Cancel
+                                            </button>
+                                        </>
+                                    ) : (
+                                        <>
+                                            <button className="text-green-600 underline" onClick={() => handleEdit(u.id, u.name, u.phone)}>
+                                                Edit
+                                            </button>
+                                            <button className="text-red-600 underline" onClick={() => handleDelete(u.id)}>
+                                                Delete
+                                            </button>
+                                            <button className="text-blue-600 underline">
+                                                <Link to={`/admin/users/${u.id}/history`} state={{ name: u.name }}>
+                                                    History
+                                                </Link>
+                                            </button>
+                                        </>
+                                    )}
                                 </div>
                             </td>
                         </tr>

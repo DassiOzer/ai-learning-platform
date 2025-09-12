@@ -37,6 +37,7 @@ const AdminDashboard: React.FC = () => {
                                 <div className="ml-4">
                                     <p className="text-blue-600 text-sm font-semibold">Total Users</p>
                                     <p className="text-2xl font-bold text-blue-800">1,234</p>
+                                    <p className="text-gray-500 text-xs">להדמיה בלבד</p>
                                 </div>
                             </div>
                         </div>
@@ -51,6 +52,7 @@ const AdminDashboard: React.FC = () => {
                                 <div className="ml-4">
                                     <p className="text-green-600 text-sm font-semibold">Categories</p>
                                     <p className="text-2xl font-bold text-green-800">12</p>
+                                    <p className="text-gray-500 text-xs">להדמיה בלבד</p>
                                 </div>
                             </div>
                         </div>
@@ -65,6 +67,7 @@ const AdminDashboard: React.FC = () => {
                                 <div className="ml-4">
                                     <p className="text-yellow-600 text-sm font-semibold">Questions Today</p>
                                     <p className="text-2xl font-bold text-yellow-800">89</p>
+                                    <p className="text-gray-500 text-xs">להדמיה בלבד</p>
                                 </div>
                             </div>
                         </div>
@@ -79,6 +82,7 @@ const AdminDashboard: React.FC = () => {
                                 <div className="ml-4">
                                     <p className="text-purple-600 text-sm font-semibold">Active Sessions</p>
                                     <p className="text-2xl font-bold text-purple-800">56</p>
+                                    <p className="text-gray-500 text-xs">להדמיה בלבד</p>
                                 </div>
                             </div>
                         </div>
@@ -111,32 +115,32 @@ const AdminDashboard: React.FC = () => {
                         <div className="border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow">
                             <h3 className="text-lg font-semibold text-gray-800 mb-2">System Settings</h3>
                             <p className="text-gray-600 mb-4">Configure platform settings</p>
-                            <button className="bg-purple-500 text-white px-4 py-2 rounded hover:bg-purple-600 transition-colors">
-                                Settings
+                            <button className="bg-purple-500 text-white px-4 py-2 rounded hover:bg-purple-600 transition-colors" disabled>
+                                Settings (להדמיה בלבד)
                             </button>
                         </div>
 
                         <div className="border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow">
                             <h3 className="text-lg font-semibold text-gray-800 mb-2">Analytics</h3>
                             <p className="text-gray-600 mb-4">View platform analytics and reports</p>
-                            <button className="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600 transition-colors">
-                                View Analytics
+                            <button className="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600 transition-colors" disabled>
+                                View Analytics (להדמיה בלבד)
                             </button>
                         </div>
 
                         <div className="border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow">
                             <h3 className="text-lg font-semibold text-gray-800 mb-2">AI Configuration</h3>
                             <p className="text-gray-600 mb-4">Configure AI settings and responses</p>
-                            <button className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 transition-colors">
-                                AI Settings
+                            <button className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 transition-colors" disabled>
+                                AI Settings (להדמיה בלבד)
                             </button>
                         </div>
 
                         <div className="border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow">
                             <h3 className="text-lg font-semibold text-gray-800 mb-2">Backup & Export</h3>
                             <p className="text-gray-600 mb-4">Backup data and export reports</p>
-                            <button className="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600 transition-colors">
-                                Backup Data
+                            <button className="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600 transition-colors" disabled>
+                                Backup Data (להדמיה בלבד)
                             </button>
                         </div>
                     </div>
