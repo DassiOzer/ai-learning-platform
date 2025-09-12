@@ -1,14 +1,13 @@
 import { Request, Response } from 'express';
 import { Prompt } from '../models/prompt';
-// import openai from '../services/openaiService'; // נוסיף אחר כך
+import { generateLesson } from '../services/aiService';
 
 export const createPrompt = async (req: Request, res: Response) => {
   try {
     const { user_id, category_id, sub_category_id, prompt } = req.body;
-    
-    // כרגע נוסיף תגובה מוכנה - נחליף באינטגרציה עם OpenAI
-    const response = `This is a mock response for: ${prompt}`;
-    
+
+    const response = await generateLesson(prompt, category_id, sub_category_id);
+
     const newPrompt = new Prompt({
       user_id,
       category_id,
@@ -16,7 +15,7 @@ export const createPrompt = async (req: Request, res: Response) => {
       prompt,
       response
     });
-    
+
     await newPrompt.save();
     res.status(201).json(newPrompt);
   } catch (error) {

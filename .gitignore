@@ -8,7 +8,7 @@ pnpm-debug.log*
 
 # dotenv environment variables
 .env
-.env.*
+!.env.example
 
 # Logs
 logs/
