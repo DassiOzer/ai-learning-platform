@@ -83,8 +83,8 @@ const AdminUsers: React.FC = () => {
                                 {editId === u.id ? (
                                     <input
                                         type="text"
-                                        value={editName} // השתמש ב-value במקום defaultValue
-                                        onChange={(e) => setEditName(e.target.value)} // עדכן את הערך בזמן אמת
+                                        value={editName}
+                                        onChange={(e) => setEditName(e.target.value)}
                                         className="border p-1 rounded"
                                     />
                                 ) : (
@@ -95,8 +95,8 @@ const AdminUsers: React.FC = () => {
                                 {editId === u.id ? (
                                     <input
                                         type="text"
-                                        value={editPhone} // השתמש ב-value במקום defaultValue
-                                        onChange={(e) => setEditPhone(e.target.value)} // עדכן את הערך בזמן אמת
+                                        value={editPhone}
+                                        onChange={(e) => setEditPhone(e.target.value)}
                                         className="border p-1 rounded"
                                     />
                                 ) : (

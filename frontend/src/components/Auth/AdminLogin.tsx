@@ -76,7 +76,7 @@ const AdminLogin: React.FC = () => {
 
         <div className="text-center mt-4">
           <button
-            onClick={() => navigate('/login')} // ← חזור להתחברות
+            onClick={() => navigate('/login')}
             className="text-gray-500 hover:text-gray-700 font-semibold"
           >
             ← Back to Login

@@ -21,7 +21,6 @@ export class CategoryService {
       throw new Error('Category name is required');
     }
 
-    // Check if category already exists (case insensitive)
     const existingCategory = await Category.findOne({ 
       name: { $regex: new RegExp(`^${name.trim()}$`, 'i') } 
     });

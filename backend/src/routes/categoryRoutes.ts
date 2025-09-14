@@ -18,18 +18,18 @@ import {
 const router = express.Router();
 
 // ===== CATEGORY ROUTES =====
-router.get('/', getCategories);                    // GET /api/categories
-router.post('/', createCategory);                  // POST /api/categories
-router.put('/:id', updateCategory);                // PUT /api/categories/:id
-router.delete('/:id', deleteCategory);             // DELETE /api/categories/:id
+router.get('/', getCategories);
+router.post('/', createCategory);
+router.put('/:id', updateCategory);
+router.delete('/:id', deleteCategory);
 
 // ===== SUBCATEGORY ROUTES =====
-router.get('/subcategories', getAllSubCategories);           // GET /api/categories/subcategories
-router.get('/:categoryId/subcategories', getSubCategories);  // GET /api/categories/:categoryId/subcategories
-router.post('/subcategories', createSubCategory);            // POST /api/categories/subcategories
-router.put('/subcategories/:id', updateSubCategory);         // PUT /api/categories/subcategories/:id
-router.delete('/subcategories/:id', deleteSubCategory);      // DELETE /api/categories/subcategories/:id
+router.get('/subcategories', getAllSubCategories);
+router.get('/:categoryId/subcategories', getSubCategories);
+router.post('/subcategories', createSubCategory);
+router.put('/subcategories/:id', updateSubCategory);
+router.delete('/subcategories/:id', deleteSubCategory);
 
-router.get('/with-subs', getCategoriesWithSubs); // GET /api/categories/with-subs
+router.get('/with-subs', getCategoriesWithSubs);
 
 export default router;

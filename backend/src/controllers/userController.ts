@@ -6,7 +6,6 @@ export const getUserByIdController = async (req: Request, res: Response): Promis
     try {
         const userId = req.params.id;
 
-        // בדיקה שה-userId קיים
         if (!userId) {
             res.status(400).json({ message: 'User ID is required' });
             return;
@@ -37,7 +36,6 @@ export const getUserHistoryController = async (req: Request, res: Response): Pro
     try {
         const userId = req.params.id;
 
-        // בדיקה שה-userId קיים
         if (!userId) {
             res.status(400).json({ message: 'User ID is required' });
             return;
@@ -59,13 +57,11 @@ export const updateUserController = async (req: Request, res: Response): Promise
         const userId = req.params.id;
         const { name, phone } = req.body;
 
-        // בדיקה שה-userId קיים
         if (!userId) {
             res.status(400).json({ message: 'User ID is required' });
             return;
         }
 
-        // בדיקת ולידציה בסיסית
         if (!name && !phone) {
             res.status(400).json({ message: 'At least one field (name or phone) is required' });
             return;
@@ -95,7 +91,6 @@ export const deleteUserController = async (req: Request, res: Response): Promise
     try {
         const userId = req.params.id;
 
-        // בדיקה שה-userId קיים
         if (!userId) {
             res.status(400).json({ message: 'User ID is required' });
             return;

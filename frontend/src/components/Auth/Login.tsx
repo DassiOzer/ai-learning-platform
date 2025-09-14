@@ -93,7 +93,7 @@ const Login: React.FC = () => {
         {/* כפתור כניסה למנהל */}
         <div className="mt-6 pt-4 border-t border-gray-200">
           <button
-            onClick={() => navigate('/admin-login')} // ← עבור לעמוד מנהל
+            onClick={() => navigate('/admin-login')}
             className="w-full p-3 bg-red-50 border border-red-200 text-red-700 font-semibold rounded-lg hover:bg-red-100 hover:border-red-300 transition-colors duration-200 flex items-center justify-center"
           >
             <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -109,7 +109,7 @@ const Login: React.FC = () => {
         <div className="text-center mt-4">
           <span className="text-gray-600">Don't have an account? </span>
           <button 
-            onClick={() => navigate('/register')} // ← עבור לרישום
+            onClick={() => navigate('/register')}
             className="text-blue-500 hover:text-blue-600 font-semibold"
           >
             Register here

@@ -13,7 +13,6 @@ app.use(cors());
 app.use(express.json());
 myDB.getDB();
 
-// נתיבי ה-API
 app.use('/api/auth', authRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/categories', categoryRoutes);
