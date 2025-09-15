@@ -27,7 +27,7 @@ A full-stack AI-powered learning platform with user management, categories, and 
 1. **Clone the repository:**
 
    ```
-   git clone https://github.com/DassiOzer/ai-learning-platform.git
+   git clone https://github.com/HadasaOzer/ai-learning-platform.git
    ```
 
 2. **Open the project in VS Code.**
